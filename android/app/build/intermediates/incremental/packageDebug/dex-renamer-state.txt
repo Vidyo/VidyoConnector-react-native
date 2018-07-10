@@ -1,0 +1,4 @@
+#Tue Jul 03 10:30:34 IDT 2018
+base.0=/Users/QA/Documents/VidyoReactNative/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/Users/QA/Documents/VidyoReactNative/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
+        "source": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "/Users/QA/Documents/VidyoReactNative/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
+        "source": "/Users/QA/Documents/VidyoReactNative/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    }
+]
