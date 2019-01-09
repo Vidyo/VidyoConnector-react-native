@@ -15,10 +15,27 @@ RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents
 {
-  return @[@"Connect:onSuccess", @"Connect:onFailure", @"Connect:onDisconnected"];
+  return @[
+           // VCConnectorIConnect
+           @"Connect:onSuccess",
+           @"Connect:onFailure",
+           @"Connect:onDisconnected",
+           
+           // VCConnectorIParticipantEventListener
+           @"Participant:onParticipantJoined",
+           @"Participant:onParticipantLeft",
+           @"Participant:onDynamicParticipantChanged",
+           @"Participant:onLoudestParticipantChanged"
+           
+           ];
 }
 
-- (void)sendNotificationToReactNative:(NSString *)event body:(NSString *)message
+- (void)sendNotificationToJavaScript:(NSString *)event
+{
+  [self sendEventWithName:event body:[NSNull null]];
+}
+
+- (void)sendNotificationToJavaScript:(NSString *)event body:(NSDictionary *)message
 {
   [self sendEventWithName:event body:message];
 }

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.57.8/res/xml/preferences.xml"
+    },
+    {
         "merged": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
         "source": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.55.4\\res\\xml\\preferences.xml"
     },

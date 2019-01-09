@@ -1,23 +1,23 @@
 [
     {
-        "outputFile": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-cs\\values-cs.xml",
+        "outputFile": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-cs/values-cs.xml",
         "map": [
             {
                 "to": {
                     "startLine": 2,
                     "startColumn": 4,
-                    "startOffset": 55,
+                    "startOffset": 105,
                     "endColumn": 106,
-                    "endOffset": 157
+                    "endOffset": 207
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 280,
+                        "startOffset": 105,
                         "endColumn": 106,
-                        "endOffset": 382
+                        "endOffset": 207
                     }
                 }
             },
@@ -25,18 +25,18 @@
                 "to": {
                     "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 162,
-                    "endColumn": 108,
-                    "endOffset": 266
+                    "startOffset": 212,
+                    "endColumn": 101,
+                    "endOffset": 309
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 387,
-                        "endColumn": 108,
-                        "endOffset": 491
+                        "startOffset": 212,
+                        "endColumn": 101,
+                        "endOffset": 309
                     }
                 }
             },
@@ -44,18 +44,18 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 271,
-                    "endColumn": 123,
-                    "endOffset": 390
+                    "startOffset": 314,
+                    "endColumn": 108,
+                    "endOffset": 418
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 496,
-                        "endColumn": 123,
-                        "endOffset": 615
+                        "startOffset": 314,
+                        "endColumn": 108,
+                        "endOffset": 418
                     }
                 }
             },
@@ -63,18 +63,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 395,
-                    "endColumn": 101,
-                    "endOffset": 492
+                    "startOffset": 423,
+                    "endColumn": 85,
+                    "endOffset": 504
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 620,
-                        "endColumn": 101,
-                        "endOffset": 717
+                        "startOffset": 423,
+                        "endColumn": 85,
+                        "endOffset": 504
                     }
                 }
             },
@@ -82,18 +82,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 497,
-                    "endColumn": 108,
-                    "endOffset": 601
+                    "startOffset": 509,
+                    "endColumn": 104,
+                    "endOffset": 609
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 722,
-                        "endColumn": 108,
-                        "endOffset": 826
+                        "startOffset": 509,
+                        "endColumn": 104,
+                        "endOffset": 609
                     }
                 }
             },
@@ -101,18 +101,18 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 606,
-                    "endColumn": 85,
-                    "endOffset": 687
+                    "startOffset": 614,
+                    "endColumn": 116,
+                    "endOffset": 726
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 831,
-                        "endColumn": 85,
-                        "endOffset": 912
+                        "startOffset": 614,
+                        "endColumn": 116,
+                        "endOffset": 726
                     }
                 }
             },
@@ -120,18 +120,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 692,
-                    "endColumn": 104,
-                    "endOffset": 792
+                    "startOffset": 731,
+                    "endColumn": 80,
+                    "endOffset": 807
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 917,
-                        "endColumn": 104,
-                        "endOffset": 1017
+                        "startOffset": 731,
+                        "endColumn": 80,
+                        "endOffset": 807
                     }
                 }
             },
@@ -139,18 +139,18 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 797,
-                    "endColumn": 116,
-                    "endOffset": 909
+                    "startOffset": 812,
+                    "endColumn": 80,
+                    "endOffset": 888
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 1022,
-                        "endColumn": 116,
-                        "endOffset": 1134
+                        "startOffset": 812,
+                        "endColumn": 80,
+                        "endOffset": 888
                     }
                 }
             },
@@ -158,18 +158,18 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 914,
+                    "startOffset": 893,
                     "endColumn": 83,
-                    "endOffset": 993
+                    "endOffset": 972
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 1139,
+                        "startOffset": 893,
                         "endColumn": 83,
-                        "endOffset": 1218
+                        "endOffset": 972
                     }
                 }
             },
@@ -177,18 +177,18 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 998,
+                    "startOffset": 977,
                     "endColumn": 103,
-                    "endOffset": 1097
+                    "endOffset": 1076
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 1223,
+                        "startOffset": 977,
                         "endColumn": 103,
-                        "endOffset": 1322
+                        "endOffset": 1076
                     }
                 }
             },
@@ -196,18 +196,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1102,
+                    "startOffset": 1081,
                     "endColumn": 108,
-                    "endOffset": 1206
+                    "endOffset": 1185
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1327,
+                        "startOffset": 1081,
                         "endColumn": 108,
-                        "endOffset": 1431
+                        "endOffset": 1185
                     }
                 }
             },
@@ -215,18 +215,18 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1211,
+                    "startOffset": 1190,
                     "endColumn": 98,
-                    "endOffset": 1305
+                    "endOffset": 1284
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1436,
+                        "startOffset": 1190,
                         "endColumn": 98,
-                        "endOffset": 1530
+                        "endOffset": 1284
                     }
                 }
             },
@@ -234,18 +234,18 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1310,
+                    "startOffset": 1289,
                     "endColumn": 105,
-                    "endOffset": 1411
+                    "endOffset": 1390
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1535,
+                        "startOffset": 1289,
                         "endColumn": 105,
-                        "endOffset": 1636
+                        "endOffset": 1390
                     }
                 }
             },
@@ -253,18 +253,18 @@
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 1416,
+                    "startOffset": 1395,
                     "endColumn": 109,
-                    "endOffset": 1521
+                    "endOffset": 1500
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1641,
+                        "startOffset": 1395,
                         "endColumn": 109,
-                        "endOffset": 1746
+                        "endOffset": 1500
                     }
                 }
             },
@@ -272,18 +272,18 @@
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 1526,
+                    "startOffset": 1505,
                     "endColumn": 106,
-                    "endOffset": 1628
+                    "endOffset": 1607
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1751,
+                        "startOffset": 1505,
                         "endColumn": 106,
-                        "endOffset": 1853
+                        "endOffset": 1607
                     }
                 }
             },
@@ -291,18 +291,18 @@
                 "to": {
                     "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 1633,
-                    "endColumn": 121,
-                    "endOffset": 1750
+                    "startOffset": 1612,
+                    "endColumn": 162,
+                    "endOffset": 1770
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1858,
-                        "endColumn": 121,
-                        "endOffset": 1975
+                        "startOffset": 1612,
+                        "endColumn": 162,
+                        "endOffset": 1770
                     }
                 }
             },
@@ -310,18 +310,18 @@
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1755,
+                    "startOffset": 1775,
                     "endColumn": 97,
-                    "endOffset": 1848
+                    "endOffset": 1868
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1980,
+                        "startOffset": 1775,
                         "endColumn": 97,
-                        "endOffset": 2073
+                        "endOffset": 1868
                     }
                 }
             },
@@ -329,18 +329,37 @@
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1853,
-                    "endColumn": 100,
-                    "endOffset": 1949
+                    "startOffset": 1873,
+                    "endColumn": 81,
+                    "endOffset": 1950
                 },
                 "from": {
-                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/res/values-cs/values-cs.xml",
                     "position": {
-                        "startLine": 21,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 2078,
+                        "startOffset": 1873,
+                        "endColumn": 81,
+                        "endOffset": 1950
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1955,
+                    "endColumn": 100,
+                    "endOffset": 2051
+                },
+                "from": {
+                    "file": "/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/27.1.1/res/values-cs/values-cs.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
                         "endColumn": 100,
-                        "endOffset": 2174
+                        "endOffset": 151
                     }
                 }
             }
@@ -682,6 +701,353 @@
                 },
                 "from": {
                     "file": "/Users/QA/Documents/VidyoReactNative/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-cs/values-cs.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2078,
+                        "endColumn": 100,
+                        "endOffset": 2174
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-cs\\values-cs.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 106,
+                    "endOffset": 157
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 280,
+                        "endColumn": 106,
+                        "endOffset": 382
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 162,
+                    "endColumn": 108,
+                    "endOffset": 266
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 387,
+                        "endColumn": 108,
+                        "endOffset": 491
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 271,
+                    "endColumn": 123,
+                    "endOffset": 390
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 496,
+                        "endColumn": 123,
+                        "endOffset": 615
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 395,
+                    "endColumn": 101,
+                    "endOffset": 492
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 620,
+                        "endColumn": 101,
+                        "endOffset": 717
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 497,
+                    "endColumn": 108,
+                    "endOffset": 601
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 722,
+                        "endColumn": 108,
+                        "endOffset": 826
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 606,
+                    "endColumn": 85,
+                    "endOffset": 687
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 831,
+                        "endColumn": 85,
+                        "endOffset": 912
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 692,
+                    "endColumn": 104,
+                    "endOffset": 792
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 917,
+                        "endColumn": 104,
+                        "endOffset": 1017
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 797,
+                    "endColumn": 116,
+                    "endOffset": 909
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1022,
+                        "endColumn": 116,
+                        "endOffset": 1134
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 914,
+                    "endColumn": 83,
+                    "endOffset": 993
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1139,
+                        "endColumn": 83,
+                        "endOffset": 1218
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 998,
+                    "endColumn": 103,
+                    "endOffset": 1097
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1223,
+                        "endColumn": 103,
+                        "endOffset": 1322
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1102,
+                    "endColumn": 108,
+                    "endOffset": 1206
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1327,
+                        "endColumn": 108,
+                        "endOffset": 1431
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1211,
+                    "endColumn": 98,
+                    "endOffset": 1305
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1436,
+                        "endColumn": 98,
+                        "endOffset": 1530
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1310,
+                    "endColumn": 105,
+                    "endOffset": 1411
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1535,
+                        "endColumn": 105,
+                        "endOffset": 1636
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1416,
+                    "endColumn": 109,
+                    "endOffset": 1521
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1641,
+                        "endColumn": 109,
+                        "endOffset": 1746
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1526,
+                    "endColumn": 106,
+                    "endOffset": 1628
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1751,
+                        "endColumn": 106,
+                        "endOffset": 1853
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1633,
+                    "endColumn": 121,
+                    "endOffset": 1750
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1858,
+                        "endColumn": 121,
+                        "endOffset": 1975
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1755,
+                    "endColumn": 97,
+                    "endOffset": 1848
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1980,
+                        "endColumn": 97,
+                        "endOffset": 2073
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1853,
+                    "endColumn": 100,
+                    "endOffset": 1949
+                },
+                "from": {
+                    "file": "/Users/QA/Documents/VidyoReactNative/android/D:\\Projects\\VidyoReactNative\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-cs\\values-cs.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,

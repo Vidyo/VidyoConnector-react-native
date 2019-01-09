@@ -18,7 +18,9 @@ export default class Toolbar extends Component {
   }
 
   render() {
-    if (this.props.showToolbar) {
+    if (this.props.hideToolbar) {
+      return null;
+    } else {
       return (
         <View style = { styles.toolbar }>
           <View style = { styles.toolbarLeft } />
@@ -56,8 +58,6 @@ export default class Toolbar extends Component {
           </View>
         </View>
       );
-    } else {
-      return null;
     }
   }
 }
@@ -65,8 +65,8 @@ export default class Toolbar extends Component {
 const styles = StyleSheet.create({
   toolbar: {
     flexDirection:    "row",
-    alignItems:       "center",
-    height:            60
+    alignItems:       'flex-end',
+    height:            180
   },
   
   toolbarLeft: {
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
 
   toolbarButton: {
-    backgroundColor:    "rgb(0, 0, 0)",
+    backgroundColor:    "rgba(0, 0, 0, 0.25)",
     flexDirection:      "row",
     alignItems:         "center",
     justifyContent:     "center",
@@ -101,11 +101,13 @@ const styles = StyleSheet.create({
   },
 
   buttonImage: {
-    width: 25,
-    height: 25
+    width:               23,
+    height:              23
   },
 
   text: {
-    color: "rgb(60, 60, 60)"
+    fontSize:            12,
+    color:              "rgba(60, 60, 60, 0.25)",
+    marginTop:          "85%"
   }
 });

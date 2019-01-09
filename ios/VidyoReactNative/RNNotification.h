@@ -1,5 +1,6 @@
 #import <React/RCTEventEmitter.h>
 
 @interface RNNotification : RCTEventEmitter <RCTBridgeModule>
-- (void)sendNotificationToReactNative:(NSString *)event body:(NSString *)message;
+- (void)sendNotificationToJavaScript:(NSString *)event;
+- (void)sendNotificationToJavaScript:(NSString *)event body:(NSDictionary *)message;
 @end

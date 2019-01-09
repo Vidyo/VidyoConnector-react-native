@@ -7,7 +7,9 @@ import android.support.v4.app.ActivityCompat;
 import android.util.DisplayMetrics;
 import android.widget.FrameLayout;
 
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.WritableArray;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -16,10 +18,13 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.vidyo.VidyoClient.Connector.ConnectorPkg;
 import com.vidyo.VidyoClient.Connector.Connector;
+import com.vidyo.VidyoClient.Endpoint.Participant;
 import com.vidyoreactnative.NativeUIComponents.FrameLayoutManager;
 
+import java.util.ArrayList;
+
 public class VidyoConnectorManager extends ReactContextBaseJavaModule implements
-        Connector.IConnect {
+        Connector.IConnect, Connector.IRegisterParticipantEventListener {
 
     public static final String REACT_CLASS = "VidyoConnectorManager";
 
@@ -50,19 +55,23 @@ public class VidyoConnectorManager extends ReactContextBaseJavaModule implements
     }
 
     @ReactMethod
-    public void create(int remoteParticipants, String logFileFilter, String logFileName, Integer userData, Promise promise){
+    public void create(String viewStyle, int remoteParticipants, String logFileFilter, String logFileName, Integer userData, Promise promise){
         try {
             mActivity   = getCurrentActivity();
             mVideoFrame = mLayoutManager.getFrameLayout();
             ConnectorPkg.setApplicationUIContext(mActivity);
             boolean initialized = ConnectorPkg.initialize();
 
+            Connector.ConnectorViewStyle connectorViewStyle = viewStyle == "ViewStyleTiles" ?
+                    Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Tiles :
+                    Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default;
+
             if (initialized && mVidyoConnector == null) {
                 if (Build.VERSION.SDK_INT > 22) {
                     ActivityCompat.requestPermissions(mActivity, mPermissions, 1);
                 }
                 mVidyoConnector = new Connector(mVideoFrame,
-                                                Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default,
+                                                connectorViewStyle,
                                                 remoteParticipants,
                                                 logFileFilter,
                                                 logFileName,
@@ -83,47 +92,64 @@ public class VidyoConnectorManager extends ReactContextBaseJavaModule implements
     }
 
     @ReactMethod
-    public void showViewDefault(){
-        mVidyoConnector.showViewAt(mVideoFrame, 0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
-    }
-
-    @ReactMethod
-    public void showViewCustom(Float x, Float y, Float width, Float height){
-        if (mVidyoConnector != null) {
-            int marginLeft = (int) (displayMetrics.widthPixels * x);
-            int marginTop = (int) (displayMetrics.heightPixels * y);
-            int layoutWidth = (int) (displayMetrics.widthPixels * width);
-            int layoutHeight = (int) ((displayMetrics.heightPixels * height) * 0.97);   // - status bar height ~3%
-
-            mVidyoConnector.showViewAt(mVideoFrame, marginLeft, marginTop, layoutWidth, layoutHeight);
+    public void showViewAt(int x, int y, int width, int height, Promise promise){
+        try {
+            int _width  = displayMetrics.widthPixels;
+            int _height = (int)(displayMetrics.heightPixels * 0.965);
+            boolean result = mVidyoConnector.showViewAt(mVideoFrame, x, y, _width, _height);
+            promise.resolve(displayMetrics.scaledDensity);
+        } catch (Exception e) {
+            promise.reject(e);
         }
     }
 
     @ReactMethod
-    public void connect(String host, String token, String displayName, String resourceId){
-        mVidyoConnector.connect(host, token, displayName, resourceId, this);
+    public void connect(String host, String token, String displayName, String resourceId, Promise promise){
+        try {
+            boolean result = mVidyoConnector.connect(host, token, displayName, resourceId, this);
+            promise.resolve(result);
+        } catch(Exception e) {
+            promise.reject(e);
+        }
     }
 
     @ReactMethod
-    public void disconnect() {
-        mVidyoConnector.disconnect();
+    public void disconnect(Promise promise) {
+        try {
+            mVidyoConnector.disconnect();
+            promise.resolve(null);
+        } catch(Exception e) {
+            promise.reject(e);
+        }
     }
 
     @ReactMethod
-    public void setCameraPrivacy(Boolean mCameraPrivacy) {
-        mVidyoConnector.setCameraPrivacy(mCameraPrivacy);
+    public void setCameraPrivacy(Boolean mCameraPrivacy, Promise promise) {
+        try{
+            boolean result = mVidyoConnector.setCameraPrivacy(mCameraPrivacy);
+            promise.resolve(result);
+        } catch (Exception e) {
+            promise.reject(e);
+        }
     }
 
     @ReactMethod
-    public void setMicrophonePrivacy(Boolean mMicrophonePrivacy) {
-        mVidyoConnector.setMicrophonePrivacy(mMicrophonePrivacy);
+    public void setMicrophonePrivacy(Boolean mMicrophonePrivacy, Promise promise) {
+        try{
+            boolean result = mVidyoConnector.setMicrophonePrivacy(mMicrophonePrivacy);
+            promise.resolve(result);
+        } catch (Exception e) {
+            promise.reject(e);
+        }
     }
 
     @ReactMethod
-    public void getVersion(Callback version) {
-        if (mVidyoConnector != null) {
+    public void getVersion(Promise promise) {
+        try {
             final String clientVersion = mVidyoConnector.getVersion();
-            version.invoke(clientVersion);
+            promise.resolve(clientVersion);
+        } catch (Exception e) {
+            promise.reject(e);
         }
     }
 
@@ -137,6 +163,17 @@ public class VidyoConnectorManager extends ReactContextBaseJavaModule implements
         //
     }
 
+    @ReactMethod
+    public void registerParticipantEventListener(Promise promise){
+        try {
+            boolean result = mVidyoConnector.registerParticipantEventListener(this);
+            promise.resolve(result);
+        } catch(Exception e) {
+            promise.reject(e);
+        }
+    }
+
+    // Implementation of Connector.IConnect
     // Handle successful connection.
     @Override
     public void onSuccess() {
@@ -147,20 +184,113 @@ public class VidyoConnectorManager extends ReactContextBaseJavaModule implements
     // Handle attempted connection failure.
     @Override
     public void onFailure(Connector.ConnectorFailReason reason) {
+        WritableMap payload = Arguments.createMap();
+        payload.putString("reason", "Connection attempt failed");
         mReactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                     .emit("Connect:onFailure", "Connection attempt failed");
+                     .emit("Connect:onFailure", payload);
     }
 
     // Handle an existing session being disconnected.
     @Override
     public void onDisconnected(Connector.ConnectorDisconnectReason reason) {
+        WritableMap payload = Arguments.createMap();
         if (reason == Connector.ConnectorDisconnectReason.VIDYO_CONNECTORDISCONNECTREASON_Disconnected) {
+            payload.putString("reason", "Succesfully disconnected");
             mReactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                         .emit("Connect:onDisconnected", "Succesfully disconnected");
+                         .emit("Connect:onDisconnected", payload);
         } else {
+            payload.putString("reason", "Unexpected disconnection");
             mReactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                         .emit("Connect:onDisconnected", "Unexpected disconnection");
+                         .emit("Connect:onDisconnected", payload);
         }
     }
 
+    // Implementation of Connector.IRegisterParticipantEventListener
+
+    @Override
+    public void onParticipantJoined(Participant participant) {
+        WritableMap participantMap = Arguments.createMap();
+
+        participantMap.putString("id", participant.id);
+        participantMap.putString("name", participant.name);
+        participantMap.putString("userId", participant.userId);
+        participantMap.putBoolean("isHidden", participant.isHidden());
+        participantMap.putBoolean("isLocal", participant.isLocal());
+        participantMap.putBoolean("isRecording", participant.isRecording());
+        participantMap.putBoolean("isSelectable", participant.isSelectable());
+
+        WritableMap payload = Arguments.createMap();
+
+        payload.putMap("participant", participantMap);
+
+        mReactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                     .emit("Participant:onParticipantJoined", payload);
+    }
+
+    @Override
+    public void onParticipantLeft(Participant participant) {
+        WritableMap participantMap = Arguments.createMap();
+
+        participantMap.putString("id", participant.id);
+        participantMap.putString("name", participant.name);
+        participantMap.putString("userId", participant.userId);
+        participantMap.putBoolean("isHidden", participant.isHidden());
+        participantMap.putBoolean("isLocal", participant.isLocal());
+        participantMap.putBoolean("isRecording", participant.isRecording());
+        participantMap.putBoolean("isSelectable", participant.isSelectable());
+
+        WritableMap payload = Arguments.createMap();
+
+        payload.putMap("participant", participantMap);
+
+        mReactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                     .emit("Participant:onParticipantLeft", payload);
+    }
+
+    @Override
+    public void onDynamicParticipantChanged(ArrayList<Participant> arrayList) {
+        WritableArray participants = Arguments.createArray();
+
+        for (Participant participant: arrayList) {
+
+            WritableMap participantMap = Arguments.createMap();
+            participantMap.putString("id", participant.id);
+            participantMap.putString("name", participant.name);
+            participantMap.putString("userId", participant.userId);
+            participantMap.putBoolean("isHidden", participant.isHidden());
+            participantMap.putBoolean("isLocal", participant.isLocal());
+            participantMap.putBoolean("isRecording", participant.isRecording());
+            participantMap.putBoolean("isSelectable", participant.isSelectable());
+
+            participants.pushMap(participantMap);
+        }
+
+        WritableMap payload = Arguments.createMap();
+
+        payload.putArray("participants", participants);
+
+        mReactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                     .emit("Participant:onDynamicParticipantChanged", payload);
+    }
+
+    @Override
+    public void onLoudestParticipantChanged(Participant participant, boolean b) {
+        WritableMap participantMap = Arguments.createMap();
+
+        participantMap.putString("id", participant.id);
+        participantMap.putString("name", participant.name);
+        participantMap.putString("userId", participant.userId);
+        participantMap.putBoolean("isHidden", participant.isHidden());
+        participantMap.putBoolean("isLocal", participant.isLocal());
+        participantMap.putBoolean("isRecording", participant.isRecording());
+        participantMap.putBoolean("isSelectable", participant.isSelectable());
+
+        WritableMap payload = Arguments.createMap();
+
+        payload.putMap("participant", participantMap);
+        payload.putBoolean("audioOnly", b);
+
+        mReactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                     .emit("Participant:onLoudestParticipantChanged", payload);
+    }
 }
