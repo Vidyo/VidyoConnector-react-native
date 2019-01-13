@@ -22,10 +22,16 @@ RCT_EXPORT_MODULE();
            @"Connect:onDisconnected",
            
            // VCConnectorIParticipantEventListener
-           @"Participant:onParticipantJoined",
-           @"Participant:onParticipantLeft",
-           @"Participant:onDynamicParticipantChanged",
-           @"Participant:onLoudestParticipantChanged"
+           @"Participant:onJoined",
+           @"Participant:onLeft",
+           @"Participant:onDynamicChanged",
+           @"Participant:onLoudestChanged",
+           
+           // VCConnectorILocalCameraEventListener
+           @"LocalCamera:onAdded",
+           @"LocalCamera:onRemoved",
+           @"LocalCamera:onSelected",
+           @"LocalCamera:onStateUpdated"
            
            ];
 }

@@ -36,7 +36,7 @@ export default class VCIParticipant {
         this.isSelectable = isSelectable;
     }
 
-    getID() {
+    getId() {
         return this.id;
     }
     getName() {

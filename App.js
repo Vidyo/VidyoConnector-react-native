@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-    Platform,
     TouchableHighlight,
     Dimensions,
     StyleSheet,
@@ -14,13 +13,15 @@ import {
 import EntranceForm    from './components/EntranceForm'
 import FrameLayout     from './components/FrameLayout';
 import Toolbar         from './components/Toolbar'
-import CreateVidyoConnector from './bridge/VidyoConnector';
 
-const { width, height } = Dimensions.get('screen');
+import DeviceController from './bridge/controllers/DeviceController';
+import { CreateVidyoConnector, ConnectorMode } from './bridge/VidyoConnector';
+
 type Props = {};
+const { width: scrWidth, height: scrHeight } = Dimensions.get('screen');
 
 export default class App extends Component <Props> {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -41,36 +42,33 @@ export default class App extends Component <Props> {
             keyboardDidShow:        false,
 
             toolbarBounceValue:     new Animated.Value(0),
-            eFormBounceValue:       new Animated.Value(0),        
+            eFormBounceValue:       new Animated.Value(0),     
+            
+            appState:               AppState.currentState
         }
         vidyoConnector   = null;
         connected        = false;
-        appState         = AppState.currentState;
     }
-    
+
     componentWillMount() {
-        this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow',  this._keyboardDidShow.bind(this));
-        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide',  this._keyboardDidHide.bind(this));
+        this.deviceController = new DeviceController();
+
+        this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow',  this._keyboardDidShow);
+        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide',  this._keyboardDidHide);
 
         this.setState({ connectionStatus: 'Initializing...',
                         callButtonState:  !this.connected });
     }
-    
+
     componentDidMount() {
         AppState.addEventListener('change', this._handleAppStateChange);
 
         if (!this.vidyoConnector) {
-            this.createConnector().then((vidyoConnector) => {
-                this.vidyoConnector.ShowViewAt({
-                    viewId: null,
-                    x: 0,
-                    y: 0,
-                    width: width,
-                    height: height
+            this.createConnector().then((vidyoConnector) => { 
+                this.updateUI().then(() => {
+                    this.registerVCEventListeners();
                 });
                 this.vidyoConnector.GetVersion().then( clientVersion => this.setState({ clientVersion }));
-
-                this.registerVCEventListeners();
 
                 this.setState({ connectionStatus: 'Ready to connect' });
             }).catch((error) => {
@@ -78,7 +76,7 @@ export default class App extends Component <Props> {
             });
         }
     }
-    
+
     componentWillUnmount() {
         AppState.removeEventListener('change', this._handleAppStateChange);
 
@@ -89,7 +87,7 @@ export default class App extends Component <Props> {
             this.destroyConnector();
         }
     }
-    
+
     createConnector() {
         let viewId             = null,                      //
             viewStyle          = 'ViewStyleDefault',
@@ -109,7 +107,58 @@ export default class App extends Component <Props> {
             return Promise.reject(error);
         });
     }
-    
+
+    destroyConnector() {
+        this.vidyoConnector.Destroy();
+    }
+
+    updateUI() {
+        return this.vidyoConnector.ShowViewAt({ viewId: null, x: 0, y: 0, width: scrWidth, height: scrHeight })
+        .then((result) => {
+            this.forceUpdate();
+
+            return Promise.resolve(result);
+        });
+    }
+
+    registerVCEventListeners() {
+        return Promise.all([
+            //RegisterLocalCameraEventListener
+            this.vidyoConnector.RegisterLocalCameraEventListener({
+                onAdded: (localCamera) => {
+                    this.deviceController.addLocalCamera(localCamera);
+                    console.log('onAdded', localCamera);
+                },
+                onRemoved: (localCamera) => {
+                    this.deviceController.removeLocalCamera(localCamera);
+                    console.log('onRemoved', localCamera);
+                },
+                onSelected: (localCamera) => {
+                    this.deviceController.SelectedCamera = localCamera;
+                    console.log('onSelected', localCamera);
+                },
+                onStateUpdated: (localCamera, state) => {
+                    console.log('onStateUpdated', localCamera, state);
+                }
+            }),
+            // RegisterParticipantEventListener
+            this.vidyoConnector.RegisterParticipantEventListener({
+                onJoined: (participant) => {
+                    this.setState({ connectionStatus: participant.name + ' joined' });
+                },
+                onLeft: (participant) => {
+                    this.setState({ connectionStatus: participant.name + ' left' });
+                },
+                onDynamicChanged: (participants) => {
+                    //
+                },
+                onLoudestChanged: (participant, audioOnly) => {
+                    this.setState({ connectionStatus: participant.name + ' is speaking' });
+                }
+            })
+        ]);
+    }  
+
     toggleConnect() {
         if (this.connected) {
             this.vidyoConnector.Disconnect();
@@ -145,51 +194,26 @@ export default class App extends Component <Props> {
             });
         }
     }
-    
-    destroyConnector() {
-        this.vidyoConnector.Destroy();
-    }
-    
+
     callButtonPressHandler(event) {
         this.setState({ callButtonState: !this.state.callButtonState });
         if (this.vidyoConnector) {
             this.toggleConnect();
         }
     }
-    
+
     cameraButtonPressHandler(event) {
         this.setState({ cameraButtonState: !this.state.cameraButtonState });
         if (this.vidyoConnector) {
             this.vidyoConnector.SetCameraPrivacy({ privacy: this.state.cameraButtonState });
         }
     }
-    
+
     microphoneButtonPressHandler(event) {
         this.setState({ microphoneButtonState: !this.state.microphoneButtonState })
         if (this.vidyoConnector) {
             this.vidyoConnector.SetMicrophonePrivacy({ privacy: this.state.microphoneButtonState });
         }
-    }
-    
-    registerVCEventListeners() {
-        // RegisterParticipantEventListener
-        this.vidyoConnector.RegisterParticipantEventListener({
-            onParticipantJoined: (participant) => {
-                this.setState({ connectionStatus: participant.name + ' joined' });
-                console.log('onParticipantJoined', participant);
-            },
-            onParticipantLeft: (participant) => {
-                this.setState({ connectionStatus: participant.name + ' left' });
-                console.log('onParticipantLeft', participant);
-            },
-            onDynamicParticipantChanged: (participants) => {
-                console.log('onDynamicParticipantChanged', participants);
-            },
-            onLoudestParticipantChanged: (participant, audioOnly) => {
-                this.setState({ connectionStatus: participant.name + ' is speaking' });
-                console.log('onLoudestParticipantChanged', participant, audioOnly);
-            }
-        });
     }
 
     inputTextChanged(event) {
@@ -209,24 +233,53 @@ export default class App extends Component <Props> {
         }
     }
 
-    _keyboardDidShow() {
+    _keyboardDidShow = () => {
         this.setState({ keyboardDidShow: true });
     }
     
-    _keyboardDidHide() {
+    _keyboardDidHide = () => {
         this.setState({ keyboardDidShow: false });
     }
     
-    _handleAppStateChange(nextAppState) {
-        if (this.appState.match(/inactive|background/) && nextAppState === 'active') {
-            this.vidyoConnector && this.vidyoConnector.SetForegroundMode();
-        } else {
-            this.vidyoConnector && this.vidyoConnector.SetBackgroundMode();
+    _handleAppStateChange = (nextAppState) => {
+        if (this.vidyoConnector) {
+            if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+                this.vidyoConnector.SetMode({ mode: ConnectorMode.VIDYO_CONNECTORMODE_Foreground })
+                .then(() => {
+                    //this.vidyoConnector.SelectDefaultCamera();
+                    //this.vidyoConnector.SelectDefaultMicrophone();
+                    //this.vidyoConnector.SelectDefaultSpeaker();
+                });
+            } else {
+                let operations = [];
+
+                if (this.deviceController) {
+                    let { SelectedCamera, SelectedMicrophone, SelectedSpeaker } = this.deviceController;
+
+                    // if (SelectedCamera) {
+                    //     operations.push(this.vidyoConnector.SelectLocalCamera(null));
+                    //     this.deviceController.SelectedCamera = null;
+                    // }
+                    // if (SelectedMicrophone) {
+                    //     operations.push(this.vidyoConnector.SelectLocalMicrophone(null));
+                    //     this.deviceController.SelectedMicrophone = null;
+                    // }
+                    // if (SelectedSpeaker) {
+                    //     operations.push(this.vidyoConnector.SelectLocalSpeaker(null));
+                    //     this.deviceController.SelectedSpeaker = null;
+                    // }
+                }
+
+                Promise.all(operations).then(() => {
+                    this.vidyoConnector.SetMode({ mode: ConnectorMode.VIDYO_CONNECTORMODE_Background });
+                });
+            }
         }
-        this.appState = nextAppState;
+
+        this.setState({ appState: nextAppState });
     }
 
-    _toggleEntranceForm() {
+    _toggleEntranceForm = () => {
         const { eFormBounceValue, isEntranceFormHidden } = this.state;
 
         Animated.spring(eFormBounceValue, {
@@ -239,7 +292,7 @@ export default class App extends Component <Props> {
         this.setState({ isEntranceFormHidden: !isEntranceFormHidden });
     }
 
-    _toggleToolbar() {
+    _toggleToolbar = () => {
         const { toolbarBounceValue, isToolbarHidden } = this.state;
 
         Animated.spring(toolbarBounceValue, {
@@ -252,7 +305,7 @@ export default class App extends Component <Props> {
         this.setState({ isToolbarHidden: !isToolbarHidden });
     }
 
-    _resetToggles(hiddern) {
+    _resetToggles = (hiddern) => {
         this.setState({ isToolbarHidden: hiddern, isEntranceFormHidden: !hiddern });
         this._toggleEntranceForm();
         this._toggleToolbar();
@@ -314,7 +367,7 @@ const styles = StyleSheet.create({
     },
     footer: {
         position:         "absolute",
-        marginTop:        height-250,
+        marginTop:        scrHeight-250,
         height:           180,
         width:            "100%"
     },

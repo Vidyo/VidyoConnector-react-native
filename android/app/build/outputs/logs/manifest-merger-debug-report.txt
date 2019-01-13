@@ -1,18 +1,61 @@
 -- Merging decision tree log ---
 manifest
 ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12
+MERGED from [com.facebook.react:react-native:0.57.8] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.57.8.aar/40791f8c0db29dacb8c21fe4b11c06b1/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/2cd0576c38abb9d3e667010a0221b9a9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/d1b35093b88d78d1597312df8e4ebd42/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/41b0fea4ce488a6d07905c3037b57d8d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/00df096838e8d0ff12d50beb325fe62a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/606c89221e8943042efebbe0f2c41aa2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/17ae910fc48552dcfa6df8e3c2f82e98/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/1cfa1dddd75a96c98ce78e3befd16011/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/47dea77ec7f597ef69dee2091208c721/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/81ecb396892cc6db91562bda3d1dd9bc/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/3c27662812672d86158b4d89b0c7ad88/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/be5ed7a8bb4010ff0f3c6cdd6e28bd73/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/132afcbfac982ac75459d0e928aecde6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/4d3ef547d013487d931efc47e33e72f2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/6a0f359e6ddcd37a8ca469e34f133064/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a02456cf7f82d21f0aebb73e4d9a4072/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/63fea5d82b640b53025048570a63a809/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/ec051b6101c42c9383e266f8cf6bb3d9/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/6f9112e9137fefb3f8485b1ed312f12f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/dc21d3dce7814fbac2711cdf98cbbb9a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/631804c04edbdd01ddbc9721423b6e23/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/96452ae284e7af867b5a8fa118c9ab0b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/afe2e99a5ae20fe1c8b339831b498aaf/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/646dd06d3fc8ade6db45f8635873d473/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/d33b74708ee8cfa798aa4f5d797c26e2/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/0f56a49e60d3e7b8c9c43bf56f18473f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/fe71e51168474a303e0f90e9f2a1b17e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fresco:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/dd11ef7d79324d45ec0c96fb6de061a6/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/248fd762fe651c9e01b989ae0d681bfd/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/cfd87d08d90aff68b256d81ce6221d5f/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/ac2a59905053e7b3eb03460e126a84e8/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/9431633665626aa0f76bd3d2475a9a4a/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.5.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/1986ac95b84500a635a3c9e80f0fbd94/AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r174650] /private/var/root/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/0dbee44db5de20edeeabc40c0138a9d4/AndroidManifest.xml:1:1-3:12
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/95c7e0a874333ef25862b1f8b7cc1253/AndroidManifest.xml:2:1-9:12
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12
 	package
 		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:2:5-35
 		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12
+		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12
 		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:11-69
-	android:versionCode
-		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:4:5-67
 	android:name
@@ -65,15 +108,24 @@ ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/
 		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:15:52-75
 application
 ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:17:5-35:19
-MERGED from [com.facebook.react:react-native:0.57.8] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.57.8/AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.5.1/AndroidManifest.xml:11:5-20
-MERGED from [org.webkit:android-jsc:r174650] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/org.webkit/android-jsc/r174650/AndroidManifest.xml:2:3-17
+MERGED from [com.facebook.react:react-native:0.57.8] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.57.8.aar/40791f8c0db29dacb8c21fe4b11c06b1/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.57.8] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.57.8.aar/40791f8c0db29dacb8c21fe4b11c06b1/AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a02456cf7f82d21f0aebb73e4d9a4072/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a02456cf7f82d21f0aebb73e4d9a4072/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/63fea5d82b640b53025048570a63a809/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/63fea5d82b640b53025048570a63a809/AndroidManifest.xml:22:5-23:19
+MERGED from [com.facebook.soloader:soloader:0.5.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/1986ac95b84500a635a3c9e80f0fbd94/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/1986ac95b84500a635a3c9e80f0fbd94/AndroidManifest.xml:11:5-20
+MERGED from [org.webkit:android-jsc:r174650] /private/var/root/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/0dbee44db5de20edeeabc40c0138a9d4/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /private/var/root/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/0dbee44db5de20edeeabc40c0138a9d4/AndroidManifest.xml:2:3-17
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a02456cf7f82d21f0aebb73e4d9a4072/AndroidManifest.xml:22:18-91
 	android:label
 		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:19:7-39
-	android:allowBackup
-		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:21:7-34
 	android:icon
 		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:20:7-45
+	android:allowBackup
+		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:21:7-34
 	android:theme
 		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:22:7-38
 	android:name
@@ -90,7 +142,7 @@ ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/
 		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:27:9-79
 	android:name
 		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:24:9-57
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:29:9-32:25
 action#android.intent.action.MAIN
 ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:30:13-65
@@ -106,36 +158,91 @@ ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/
 		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:34:17-81
 uses-sdk
 INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.facebook.react:react-native:0.57.8] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.57.8/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/27.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/support-fragment/27.1.1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/android.arch.lifecycle/livedata-core/1.1.0/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/android.arch.core/runtime/1.1.0/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/android.arch.lifecycle/viewmodel/1.1.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/27.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/27.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/27.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/27.1.1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/27.1.1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/android.arch.lifecycle/runtime/1.1.0/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.10.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.10.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.10.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.10.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.10.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.10.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.10.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.5.1/AndroidManifest.xml:7:5-9:41
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
+MERGED from [com.facebook.react:react-native:0.57.8] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.57.8.aar/40791f8c0db29dacb8c21fe4b11c06b1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.8] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.57.8.aar/40791f8c0db29dacb8c21fe4b11c06b1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/2cd0576c38abb9d3e667010a0221b9a9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/2cd0576c38abb9d3e667010a0221b9a9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/d1b35093b88d78d1597312df8e4ebd42/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/d1b35093b88d78d1597312df8e4ebd42/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/41b0fea4ce488a6d07905c3037b57d8d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/41b0fea4ce488a6d07905c3037b57d8d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/00df096838e8d0ff12d50beb325fe62a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/00df096838e8d0ff12d50beb325fe62a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/606c89221e8943042efebbe0f2c41aa2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/606c89221e8943042efebbe0f2c41aa2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/17ae910fc48552dcfa6df8e3c2f82e98/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/17ae910fc48552dcfa6df8e3c2f82e98/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/1cfa1dddd75a96c98ce78e3befd16011/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/1cfa1dddd75a96c98ce78e3befd16011/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/47dea77ec7f597ef69dee2091208c721/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/47dea77ec7f597ef69dee2091208c721/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/81ecb396892cc6db91562bda3d1dd9bc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/81ecb396892cc6db91562bda3d1dd9bc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/3c27662812672d86158b4d89b0c7ad88/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/3c27662812672d86158b4d89b0c7ad88/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/be5ed7a8bb4010ff0f3c6cdd6e28bd73/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/be5ed7a8bb4010ff0f3c6cdd6e28bd73/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/132afcbfac982ac75459d0e928aecde6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/132afcbfac982ac75459d0e928aecde6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/4d3ef547d013487d931efc47e33e72f2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/4d3ef547d013487d931efc47e33e72f2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/6a0f359e6ddcd37a8ca469e34f133064/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/6a0f359e6ddcd37a8ca469e34f133064/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a02456cf7f82d21f0aebb73e4d9a4072/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a02456cf7f82d21f0aebb73e4d9a4072/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/63fea5d82b640b53025048570a63a809/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/63fea5d82b640b53025048570a63a809/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/ec051b6101c42c9383e266f8cf6bb3d9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/ec051b6101c42c9383e266f8cf6bb3d9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/6f9112e9137fefb3f8485b1ed312f12f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/6f9112e9137fefb3f8485b1ed312f12f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/dc21d3dce7814fbac2711cdf98cbbb9a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/dc21d3dce7814fbac2711cdf98cbbb9a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/631804c04edbdd01ddbc9721423b6e23/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/631804c04edbdd01ddbc9721423b6e23/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/96452ae284e7af867b5a8fa118c9ab0b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/96452ae284e7af867b5a8fa118c9ab0b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/afe2e99a5ae20fe1c8b339831b498aaf/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/afe2e99a5ae20fe1c8b339831b498aaf/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/646dd06d3fc8ade6db45f8635873d473/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/646dd06d3fc8ade6db45f8635873d473/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/d33b74708ee8cfa798aa4f5d797c26e2/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/d33b74708ee8cfa798aa4f5d797c26e2/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/0f56a49e60d3e7b8c9c43bf56f18473f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/0f56a49e60d3e7b8c9c43bf56f18473f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/fe71e51168474a303e0f90e9f2a1b17e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/fe71e51168474a303e0f90e9f2a1b17e/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/dd11ef7d79324d45ec0c96fb6de061a6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/dd11ef7d79324d45ec0c96fb6de061a6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/248fd762fe651c9e01b989ae0d681bfd/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/248fd762fe651c9e01b989ae0d681bfd/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/cfd87d08d90aff68b256d81ce6221d5f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/cfd87d08d90aff68b256d81ce6221d5f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/ac2a59905053e7b3eb03460e126a84e8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/ac2a59905053e7b3eb03460e126a84e8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/9431633665626aa0f76bd3d2475a9a4a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/9431633665626aa0f76bd3d2475a9a4a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/1986ac95b84500a635a3c9e80f0fbd94/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/1986ac95b84500a635a3c9e80f0fbd94/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/95c7e0a874333ef25862b1f8b7cc1253/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/95c7e0a874333ef25862b1f8b7cc1253/AndroidManifest.xml:5:5-7:41
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
 		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from [com.facebook.react:react-native:0.57.8] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.57.8/AndroidManifest.xml:11:5-78
+ADDED from [com.facebook.react:react-native:0.57.8] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.57.8.aar/40791f8c0db29dacb8c21fe4b11c06b1/AndroidManifest.xml:11:5-78
 	android:name
-		ADDED from [com.facebook.react:react-native:0.57.8] /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.57.8/AndroidManifest.xml:11:22-75
-android:uses-permission#android.permission.READ_PHONE_STATE
+		ADDED from [com.facebook.react:react-native:0.57.8] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.57.8.aar/40791f8c0db29dacb8c21fe4b11c06b1/AndroidManifest.xml:11:22-75
+uses-permission#android.permission.READ_PHONE_STATE
 IMPLIED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
-android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
 IMPLIED from /Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/src/main/AndroidManifest.xml:1:1-37:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

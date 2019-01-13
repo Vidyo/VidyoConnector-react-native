@@ -3,7 +3,7 @@
 #import <React/RCTViewManager.h>
 #import "RNNotification.h"
 
-@interface VidyoConnectorManager : RCTViewManager<VCConnectorIConnect, VCConnectorIRegisterParticipantEventListener>
+@interface VidyoConnectorManager : RCTViewManager<VCConnectorIConnect, VCConnectorIRegisterParticipantEventListener, VCConnectorIRegisterLocalCameraEventListener>
   @property (nonatomic, strong) UIView          *videoView;
   @property (nonatomic, strong) VCConnector     *vidyoConnector;
   @property (nonatomic, strong) RNNotification  *emitter;
@@ -124,6 +124,20 @@ RCT_EXPORT_METHOD(disconnect:(RCTPromiseResolveBlock)resolve
   }
 }
 
+RCT_EXPORT_METHOD(getVersion:(RCTPromiseResolveBlock)resolve
+                    rejecter:(RCTPromiseRejectBlock)reject)
+{
+  @try {
+    NSString *clientVersion = [_vidyoConnector getVersion];
+    
+    resolve(clientVersion);
+  }
+  @catch (NSError *error) {
+    reject(@"Lib_Error", @"GetVersion failed", error);
+  }
+}
+
+
 RCT_EXPORT_METHOD(setCameraPrivacy:(BOOL)cameraPrivacy
                           resolver:(RCTPromiseResolveBlock)resolve
                           rejecter:(RCTPromiseRejectBlock)reject)
@@ -152,63 +166,164 @@ RCT_EXPORT_METHOD(setMicrophonePrivacy:(BOOL)microphonePrivacy
   }
 }
 
-RCT_EXPORT_METHOD(getVersion:(RCTPromiseResolveBlock)resolve
-                    rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(selectDefaultCamera:(RCTPromiseResolveBlock)resolve
+                             rejecter:(RCTPromiseRejectBlock)reject)
 {
   @try {
-    NSString *clientVersion = [_vidyoConnector getVersion];
-
-    resolve(clientVersion);
+    BOOL result = [_vidyoConnector selectDefaultCamera];
+    
+    result ? resolve(@true) : resolve(@false);
   }
   @catch (NSError *error) {
-    reject(@"Lib_Error", @"GetVersion failed", error);
+    reject(@"Device_Error", @"SelectDefaultCamera failed", error);
   }
 }
 
-RCT_EXPORT_METHOD(setBackgroundMode)
+RCT_EXPORT_METHOD(selectDefaultMicrophone:(RCTPromiseResolveBlock)resolve
+                                 rejecter:(RCTPromiseRejectBlock)reject)
 {
-  if (_vidyoConnector) {
-    [_vidyoConnector selectLocalCamera:nil];
-    [_vidyoConnector selectLocalMicrophone:nil];
-    [_vidyoConnector selectLocalSpeaker:nil];
-    [_vidyoConnector setMode:VCConnectorModeBackground];
+  @try {
+    BOOL result = [_vidyoConnector selectDefaultMicrophone];
+    
+    result ? resolve(@true) : resolve(@false);
+  }
+  @catch (NSError *error) {
+    reject(@"Device_Error", @"SelectDefaultMicrophone failed", error);
   }
 }
 
-RCT_EXPORT_METHOD(setForegroundMode)
+RCT_EXPORT_METHOD(selectDefaultSpeaker:(RCTPromiseResolveBlock)resolve
+                              rejecter:(RCTPromiseRejectBlock)reject)
 {
-  if (_vidyoConnector) {
-    [_vidyoConnector setMode:VCConnectorModeForeground];
-    [_vidyoConnector selectDefaultCamera];
-    [_vidyoConnector selectDefaultMicrophone];
-    [_vidyoConnector selectDefaultSpeaker];
+  @try {
+    BOOL result = [_vidyoConnector selectDefaultSpeaker];
+    
+    result ? resolve(@true) : resolve(@false);
+  }
+  @catch (NSError *error) {
+    reject(@"Device_Error", @"SelectDefaultSpeaker failed", error);
+  }
+}
+
+RCT_EXPORT_METHOD(selectLocalCamera:(NSDictionary *)localCamera
+                           resolver:(RCTPromiseResolveBlock)resolve
+                           rejecter:(RCTPromiseRejectBlock)reject)
+{
+  @try {
+    BOOL result;
+    
+    if ([localCamera count] > 0) { // TODO
+      result = NO;
+    }
+    else {
+      result = [_vidyoConnector selectLocalCamera:nil];
+    }
+  
+    result ? resolve(@true) : resolve(@false);
+  }
+  @catch (NSError *error) {
+    reject(@"Device_Error", @"SelectLocalCamera failed", error);
+  }
+}
+
+RCT_EXPORT_METHOD(selectLocalMicrophone:(NSDictionary *)localMicrophone
+                               resolver:(RCTPromiseResolveBlock)resolve
+                               rejecter:(RCTPromiseRejectBlock)reject)
+{
+  @try {
+    BOOL result;
+    
+    if ([localMicrophone count] > 0) { // TODO
+      result = NO;
+    }
+    else {
+      result = [_vidyoConnector selectLocalMicrophone:nil];
+    }
+    
+    result ? resolve(@true) : resolve(@false);
+  }
+  @catch (NSError *error) {
+    reject(@"Device_Error", @"SelectLocalMicrophone failed", error);
+  }
+}
+
+RCT_EXPORT_METHOD(selectLocalSpeaker:(NSDictionary *)localSpeaker
+                            resolver:(RCTPromiseResolveBlock)resolve
+                            rejecter:(RCTPromiseRejectBlock)reject)
+{
+  @try {
+    BOOL result;
+    
+    if ([localSpeaker count] > 0) { // TODO
+      result = NO;
+    }
+    else {
+      result = [_vidyoConnector selectLocalSpeaker:nil];
+    }
+    
+    result ? resolve(@true) : resolve(@false);
+  }
+  @catch (NSError *error) {
+    reject(@"Device_Error", @"SelectLocalSpeaker failed", error);
+  }
+}
+
+RCT_EXPORT_METHOD(setMode:(NSString *)mode
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
+{
+  @try {
+    BOOL result = [mode isEqual: @"VIDYO_CONNECTORMODE_Foreground"] ?
+                  [_vidyoConnector setMode:VCConnectorModeForeground]:
+                  [_vidyoConnector setMode:VCConnectorModeBackground];
+    result ? resolve(@true) : resolve(@false);
+  }
+  @catch (NSError *error) {
+    reject(@"Lib_Error", @"SetMode failed", error);
+  }
+}
+
+RCT_EXPORT_METHOD(registerLocalCameraEventListener:(RCTPromiseResolveBlock)resolve
+                                          rejecter:(RCTPromiseRejectBlock)reject)
+{
+  @try {
+    BOOL result = [_vidyoConnector registerLocalCameraEventListener:self];
+    
+    result ? resolve(@true) : resolve(@false);
+  }
+  @catch (NSError *error) {
+    reject(@"Lib_Error", @"RegisterLocalCameraEventListener failed", error);
   }
 }
 
 RCT_EXPORT_METHOD(registerParticipantEventListener:(RCTPromiseResolveBlock)resolve
-                                          rejecter:(RCTPromiseRejectBlock)reject) {
+                                          rejecter:(RCTPromiseRejectBlock)reject)
+{
   @try {
     BOOL result = [_vidyoConnector registerParticipantEventListener:self];
     
     result ? resolve(@true) : resolve(@false);
   }
   @catch (NSError *error) {
-    reject(@"Lib_Error", @"GetVersion failed", error);
+    reject(@"Lib_Error", @"RegisterParticipantEventListener failed", error);
   }
 }
 
 // Implementation of VCConnectorIConnect
 
--(void) onSuccess {
+-(void) onSuccess
+{
   [_emitter sendNotificationToJavaScript:@"Connect:onSuccess"];
 }
 
--(void) onFailure:(VCConnectorFailReason)reason {
+-(void) onFailure:(VCConnectorFailReason)reason
+{
   [_emitter sendNotificationToJavaScript:@"Connect:onFailure"
                                     body:@{@"reason": @"Connection attempt failed"}];
 }
 
--(void) onDisconnected:(VCConnectorDisconnectReason)reason {
+-(void) onDisconnected:(VCConnectorDisconnectReason)reason
+{
   if (reason == VCConnectorDisconnectReasonDisconnected) {
     [_emitter sendNotificationToJavaScript:@"Connect:onDisconnected"
                                       body:@{@"reason": @"Succesfully disconnected"}];
@@ -220,8 +335,9 @@ RCT_EXPORT_METHOD(registerParticipantEventListener:(RCTPromiseResolveBlock)resol
 
 // Implementation of VCConnectorIParticipantEventListener
 
--(void) onParticipantJoined:(VCParticipant*)participant {
-  NSDictionary *result = @{
+-(void) onParticipantJoined:(VCParticipant*)participant
+{
+  NSDictionary *nsParticipant = @{
                            @"id":           participant.id,
                            @"name":         participant.name,
                            @"userId":       participant.userId,
@@ -230,13 +346,16 @@ RCT_EXPORT_METHOD(registerParticipantEventListener:(RCTPromiseResolveBlock)resol
                            @"isRecording":  @(participant.isRecording),
                            @"isSelectable": @(participant.isSelectable)
                            };
+
+  [_emitter sendNotificationToJavaScript:@"Participant:onJoined"
+                                    body:@{ @"participant": nsParticipant }];
   participant = nil;
-  [_emitter sendNotificationToJavaScript:@"Participant:onParticipantJoined"
-                                    body:@{ @"participant": result }];
+  nsParticipant = nil;
 }
 
--(void) onParticipantLeft:(VCParticipant*)participant {
-  NSDictionary *result = @{
+-(void) onParticipantLeft:(VCParticipant*)participant
+{
+  NSDictionary *nsParticipant = @{
                            @"id":           participant.id,
                            @"name":         participant.name,
                            @"userId":       participant.userId,
@@ -245,16 +364,19 @@ RCT_EXPORT_METHOD(registerParticipantEventListener:(RCTPromiseResolveBlock)resol
                            @"isRecording":  @(participant.isRecording),
                            @"isSelectable": @(participant.isSelectable)
                            };
+
+  [_emitter sendNotificationToJavaScript:@"Participant:onLeft"
+                                    body:@{ @"participant": nsParticipant }];
   participant = nil;
-  [_emitter sendNotificationToJavaScript:@"Participant:onParticipantLeft"
-                                    body:@{ @"participant": result }];
+  nsParticipant = nil;
 }
 
--(void) onDynamicParticipantChanged:(NSMutableArray*)participants {
-  NSMutableArray *result = [[NSMutableArray alloc] init];
+-(void) onDynamicParticipantChanged:(NSMutableArray*)participants
+{
+  NSMutableArray *nsParticipants = [[NSMutableArray alloc] init];
   for (int i = 0; i < [participants count]; i++) {
     VCParticipant *participant = participants[i];
-    result[i] = @{
+    nsParticipants[i] = @{
                   @"id":           participant.id,
                   @"name":         participant.name,
                   @"userId":       participant.userId,
@@ -264,13 +386,15 @@ RCT_EXPORT_METHOD(registerParticipantEventListener:(RCTPromiseResolveBlock)resol
                   @"isSelectable": @(participant.isSelectable)
                   };
   }
-  NSArray * array = [NSArray arrayWithArray:result];
-  [_emitter sendNotificationToJavaScript:@"Participant:onDynamicParticipantChanged"
+  NSArray * array = [NSArray arrayWithArray:nsParticipants];
+  [_emitter sendNotificationToJavaScript:@"Participant:onDynamicChanged"
                                     body:@{ @"participants": array }];
+  nsParticipants = nil;
 }
 
--(void) onLoudestParticipantChanged:(VCParticipant*)participant AudioOnly:(BOOL)audioOnly {
-  NSDictionary *result = @{
+-(void) onLoudestParticipantChanged:(VCParticipant*)participant AudioOnly:(BOOL)audioOnly
+{
+  NSDictionary *nsParticipant = @{
                            @"id":           participant.id,
                            @"name":         participant.name,
                            @"userId":       participant.userId,
@@ -279,9 +403,70 @@ RCT_EXPORT_METHOD(registerParticipantEventListener:(RCTPromiseResolveBlock)resol
                            @"isRecording":  @(participant.isRecording),
                            @"isSelectable": @(participant.isSelectable)
                            };
-  participant = nil;
-  [_emitter sendNotificationToJavaScript:@"Participant:onParticipantLeft"
-                                    body:@{ @"participant": result, @"audioOnly": @(audioOnly) }];
+
+  [_emitter sendNotificationToJavaScript:@"Participant:onLoudestChanged"
+                                    body:@{ @"participant": nsParticipant, @"audioOnly": @(audioOnly) }];
+  nsParticipant = nil;
+}
+
+// Implementation of VCConnectorILocalCameraEventListener
+
+-(void) onLocalCameraAdded:(VCLocalCamera*)localCamera
+{
+  NSDictionary *nsCamera = @{ @"id": localCamera.id, @"name": localCamera.name };
+
+  [_emitter sendNotificationToJavaScript:@"LocalCamera:onAdded"
+                                    body:@{ @"localCamera": nsCamera }];
+  nsCamera = nil;
+}
+
+-(void) onLocalCameraRemoved:(VCLocalCamera*)localCamera
+{
+  NSDictionary *nsCamera = @{ @"id": localCamera.id, @"name": localCamera.name };
+
+  [_emitter sendNotificationToJavaScript:@"LocalCamera:onRemoved"
+                                    body:@{ @"localCamera": nsCamera }];
+  nsCamera = nil;
+}
+
+-(void) onLocalCameraSelected:(VCLocalCamera*)localCamera
+{
+  NSDictionary *nsCamera = @{ @"id": localCamera.id, @"name": localCamera.name };
+
+  [_emitter sendNotificationToJavaScript:@"LocalCamera:onSelected"
+                                    body:@{ @"localCamera": nsCamera }];
+  nsCamera = nil;
+}
+
+-(void) onLocalCameraStateUpdated:(VCLocalCamera*)localCamera State:(VCDeviceState)state
+{
+  NSDictionary *nsCamera = @{ @"id": localCamera.id, @"name": localCamera.name };
+  NSString *nsState;
+
+  switch (state) {
+    case VCDeviceStateAdded:            nsState = @"VCDeviceStateAdded";             break;
+    case VCDeviceStateRemoved:          nsState = @"VCDeviceStateRemoved";           break;
+    case VCDeviceStateStarted:          nsState = @"VCDeviceStateStarted";           break;
+    case VCDeviceStateStopped:          nsState = @"VCDeviceStateStopped";           break;
+    case VCDeviceStateSuspended:        nsState = @"VCDeviceStateSuspended";         break;
+    case VCDeviceStateUnsuspended:      nsState = @"VCDeviceStateUnsuspended";       break;
+    case VCDeviceStateInUse:            nsState = @"VCDeviceStateInUse";             break;
+    case VCDeviceStateAvailable:        nsState = @"VCDeviceStateAvailable";         break;
+    case VCDeviceStatePaused:           nsState = @"VCDeviceStatePaused";            break;
+    case VCDeviceStateResumed:          nsState = @"VCDeviceStateResumed";           break;
+    case VCDeviceStateControllable:     nsState = @"VCDeviceStateControllable";      break;
+    case VCDeviceStateNotControllable:  nsState = @"VCDeviceStateNotControllable";   break;
+    case VCDeviceStateDefaultChanged:   nsState = @"VCDeviceStateDefaultChanged";    break;
+    case VCDeviceStateConfigureSuccess: nsState = @"VCDeviceStateConfigureSuccess";  break;
+    case VCDeviceStateConfigureError:   nsState = @"VCDeviceStateConfigureError";    break;
+    case VCDeviceStateError:            nsState = @"VCDeviceStateError";             break;
+    default:                            nsState = @"Default";
+  }
+  
+  [_emitter sendNotificationToJavaScript:@"LocalCamera:onStateUpdated"
+                                    body:@{ @"localCamera": nsCamera, @"state": nsState }];
+  nsState = nil;
+  nsCamera = nil;
 }
 
 @end
