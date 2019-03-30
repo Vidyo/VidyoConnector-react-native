@@ -28,7 +28,7 @@ export default class DeviceController {
         return this.selectedDevices.selectedMicrophone;
     }
     set SelectedMicrophone(microphone) {
-        return this.selectedDevices.selectedCamera = microphone;
+        return this.selectedDevices.selectedMicrophone = microphone;
     }
     get SelectedSpeaker() {
         return this.selectedDevices.selectedSpeaker;
