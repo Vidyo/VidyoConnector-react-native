@@ -39,7 +39,7 @@ export default class EntranceForm extends Component {
 const styles = StyleSheet.create({
     form: {
         padding:          "2%",
-        marginTop:        "6%",
+        marginTop:        "8%",
         marginLeft:       "4%",
         width:            "92%",
         height:           350,

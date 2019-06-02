@@ -1,0 +1,4 @@
+#Sat Apr 20 18:28:01 EEST 2019
+base.0=/Users/serhiib/Projects/Projects/temp/VidyoReactNative/android/app/build/intermediates/transforms/dexMerger/debug/7
+path.0=classes.dex
+renamed.0=classes.dex

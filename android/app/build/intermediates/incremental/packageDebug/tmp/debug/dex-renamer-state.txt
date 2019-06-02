@@ -1,0 +1,4 @@
+#Sun Jun 02 22:03:48 EEST 2019
+base.0=/Users/serhiib/Projects/Projects/VidyoConnector-react-native/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
