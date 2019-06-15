@@ -1,140 +1,108 @@
 import React, { Component } from 'react';
 import {
-    NativeModules,
+    Dimensions,
     StyleSheet,
+    Animated,
     Keyboard,
     AppState,
     Text,
     View
 } from 'react-native';
 
-import EventDispatcher from './components/EventDispatcher';
-import EntranceForm    from './components/EntranceForm'
-import FrameLayout     from './components/FrameLayout';
-import Toolbar         from './components/Toolbar'
-
-const VidyoConnector = NativeModules.VidyoConnectorManager;
+import Toolbar            from './components/Toolbar';
+import EntranceForm       from './components/EntranceForm'
+import VidyoConnectorView from './components/VidyoConnectorView';
 
 type Props = {};
+const { height: scrHeight } = Dimensions.get('screen');
+
 export default class App extends Component <Props> {
-    
+
     constructor(props) {
         super(props);
         this.state = {
             /* Toolbar props */
-            callButtonState:        true,
-            cameraButtonState:      true,
-            microphoneButtonState:  true,
+            callButtonState:        false,
+            cameraButtonState:      false,
+            microphoneButtonState:  false,
             connectionStatus:       '',
             clientVersion:          '',
             /* Entrance form */
             host:                   'prod.vidyo.io',
             token:                  '',
             displayName:            'Guest',
-            resourceId:             'demoRoom',
-            showEntranceForm:       true,
-            
+            resourceId:             'experimental',
+
+            connectorMode:          'VIDYO_CONNECTORMODE_Foreground',
+
+            isEntranceFormHidden:   false,
+            isToolbarHidden:        false,
             keyboardDidShow:        false,
+
+            toolbarBounceValue:     new Animated.Value(0),
+            eFormBounceValue:       new Animated.Value(0),
+
+            connected:              false,
+            
+            appState:               AppState.currentState
         }
-        
-        connectorCreated = false;
-        connected        = false;
-        appState         = AppState.currentState;
     }
-    
-    componentWillMount() {
-        this.connectOnSuccess        = EventDispatcher.addListener('Connect:onSuccess',      this._onSuccess.bind(this));
-        this.connectOnFailure        = EventDispatcher.addListener('Connect:onFailure',      this._onFailure.bind(this));
-        this.connectOnDisconnected   = EventDispatcher.addListener('Connect:onDisconnected', this._onDisconnected.bind(this));
-        this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow',  this._keyboardDidShow.bind(this));
-        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide',  this._keyboardDidHide.bind(this));
-        
-        this.setState({ connectionStatus: 'Initializing...',
-                      callButtonState:  !this.connected });
-    }
-    
+
     componentDidMount() {
         AppState.addEventListener('change', this._handleAppStateChange);
-        
-        if (!this.connectorCreated) {
-            this.createConnector();
-        }
-        this.showVideoLayout();
+
+        this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow',  this._keyboardDidShow);
+        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide',  this._keyboardDidHide);
     }
-    
+
     componentWillUnmount() {
         AppState.removeEventListener('change', this._handleAppStateChange);
-        
-        this.connectOnSuccess       .remove();
-        this.connectOnFailure       .remove();
-        this.connectOnDisconnected  .remove();
+
         this.keyboardDidShowListener.remove();
         this.keyboardDidHideListener.remove();
-
-        if (this.connectorCreated) {
-            this.destroyConnector();
-        }
     }
-    
-    createConnector() {
-        let remoteParticipants = 8,
-            logFileFilter      = 'warning all@VidyoConnector info@VidyoClient',
-            logFileName        = '',
-            userData           = 0;
-        
-        VidyoConnector.create(remoteParticipants, logFileFilter, logFileName, userData)
-        .then((status) => {
-              if (status) {
-                this.connectorCreated = status;
-                this.setState({ connectionStatus: 'Ready to connect' });
-                VidyoConnector.getVersion( clientVersion => this.setState({ clientVersion }));
-              }
-        }).catch((error) => {
-            //
+
+    onConnect = (payload) => {
+        const { status, reason } = payload;
+        this.setState({
+            connectionStatus:       reason,
+            callButtonState:        !!status,
+            connected:              !!status
+        }, () => {
+            this._toggleEntranceForm(!!status);
+            this._toggleToolbar(!!status);
         });
     }
-    
-    showVideoLayout() {
-        VidyoConnector.showViewCustom(marginLeft   = 0,
-                                      marginTop    = 0,
-                                      layoutWidth  = 1,       // 100%
-                                      layoutHeight = 0.88);   // 88%
+
+    onDisconnect = (payload) => {
+        this.setState({ 
+            connected:              false,
+            connectionStatus:       payload.reason,
+            callButtonState:        false
+        }, () => {
+            this._toggleEntranceForm(false);
+            this._toggleToolbar(false);
+        });
     }
-    
-    toggleConnect() {
-        this.connected ? VidyoConnector.disconnect() :
-        VidyoConnector.connect(this.state.host,
-                               this.state.token,
-                               this.state.displayName,
-                               this.state.resourceId);
+
+    onParticipantJoined = (payload) => {
+        this.setState({ connectionStatus: payload.participant.name + ' joined' });
     }
-    
-    destroyConnector() {
-        VidyoConnector.destroy();
+
+    onParticipantLeft = (payload) => {
+        this.setState({ connectionStatus: payload.participant.name + ' left' });
     }
-    
-    callButtonPressHandler(event) {
-        this.setState({ callButtonState: !this.state.callButtonState });
-        if (this.connectorCreated) {
-            this.toggleConnect();
+
+    _toggleConnect() {
+        if (this.state.connected) {
+            this.vidyoConnector.disconnect();
+        } else {
+            let { host, token, displayName, resourceId } = this.state;
+            this.vidyoConnector.connect(host, token, displayName, resourceId);
         }
     }
-    
-    cameraButtonPressHandler(event) {
-        this.setState({ cameraButtonState: !this.state.cameraButtonState });
-        if (this.connectorCreated) {
-            VidyoConnector.setCameraPrivacy(this.state.cameraButtonState);
-        }
-    }
-    
-    microphoneButtonPressHandler(event) {
-        this.setState({ microphoneButtonState: !this.state.microphoneButtonState })
-        if (this.connectorCreated) {
-            VidyoConnector.setMicrophonePrivacy(this.state.microphoneButtonState);
-        }
-    }
-    
-    inputTextChanged(event) {
+
+    _inputTextChanged = (event) => {
         switch(event.target) {
             case 'host':
                 this.setState({ host: event.text });
@@ -150,114 +118,170 @@ export default class App extends Component <Props> {
                 break;
         }
     }
-    
-    _onSuccess() {
-        this.connected = true;
-        this.setState({ connectionStatus: `Connected`,
-                      callButtonState:  false,
-                      showEntranceForm: false });
+
+    _toolbarTogglePressHandler = (event) => {
+        this._toggleToolbar(!this.state.isToolbarHidden);
     }
-    
-    _onFailure(reason) {
-        this.connected = false;
-        this.setState({ connectionStatus: `Failed: ${reason}`,
-                      callButtonState:  true,
-                      showEntranceForm: true });
+
+    _callButtonPressHandler = (event) => {
+        this.setState({
+            callButtonState: !this.state.callButtonState
+        }, () => {
+            this._toggleConnect();
+        });
     }
-    
-    _onDisconnected(reason) {
-        this.connected = false;
-        this.setState({ connectionStatus: `Disconnected: ${reason}`,
-                      callButtonState:  true,
-                      showEntranceForm: true });
+
+    _cameraButtonPressHandler = (event) => {
+        this.setState({ cameraButtonState: !this.state.cameraButtonState });
     }
-    
-    _keyboardDidShow() {
+
+    _microphoneButtonPressHandler = (event) => {
+        this.setState({ microphoneButtonState: !this.state.microphoneButtonState });
+    }
+
+    _keyboardDidShow = () => {
         this.setState({ keyboardDidShow: true });
     }
     
-    _keyboardDidHide() {
+    _keyboardDidHide = () => {
         this.setState({ keyboardDidShow: false });
     }
-    
-    _handleAppStateChange(nextAppState) {
-        if (this.appState.match(/inactive|background/) && nextAppState === 'active') {
-            VidyoConnector.setForegroundMode();
-        } else {
-            VidyoConnector.setBackgroundMode();
+
+    _handleAppStateChange = (nextAppState) => {
+        if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+            this.setState({ connectorMode: "VIDYO_CONNECTORMODE_Foreground" });
+        } else if (nextAppState === 'background') {
+            this.setState({ connectorMode: "VIDYO_CONNECTORMODE_Background" });
         }
-        this.appState = nextAppState;
+        this.setState({ appState: nextAppState });
     }
-    
+
+    _toggleEntranceForm = (hidden=true) => {
+        const { eFormBounceValue, isEntranceFormHidden } = this.state;
+        if (isEntranceFormHidden === hidden) {
+            return;
+        }
+        Animated.spring(eFormBounceValue, {
+            toValue:    !isEntranceFormHidden ? -400 : 0,
+            velocity:   2,
+            tension:    1,
+            friction:   4,
+        }).start();
+        this.setState({ isEntranceFormHidden: hidden });
+    }
+
+    _toggleToolbar = (hidden=true) => {
+        const { toolbarBounceValue, isToolbarHidden } = this.state;
+        if (isToolbarHidden === hidden) {
+            return;
+        }
+        Animated.spring(toolbarBounceValue, {
+            toValue:    isToolbarHidden ? 0 : 70,
+            velocity:   3,
+            tension:    1,
+            friction:   8,
+        }).start();
+        this.setState({ isToolbarHidden: hidden });
+    }
+
+    _resetToggles = (hiddern) => {
+        this.setState({
+            isToolbarHidden: hiddern,
+            isEntranceFormHidden: hiddern
+        }, () => {
+            this._toggleEntranceForm();
+            this._toggleToolbar();
+        });
+    }
+
     render() {
-        return (
-                <View>
-                    <View style = { styles.header }>
-                        <Text style = { styles.message }>{ this.state.keyboardDidShow ? '' : this.state.connectionStatus }</Text>
-                    </View>
-                    <View style = { styles.body } >
-                        <FrameLayout style = { styles.frame }  />
-                    </View>
-                    <View
-                        style = { styles.footer }>
-                        <Toolbar
-                            style                 = { styles.toolbar }
-                            callButtonState       = { this.state.callButtonState }
-                            cameraButtonState     = { this.state.cameraButtonState }
-                            microphoneButtonState = { this.state.microphoneButtonState }
-                            clientVersion         = { this.state.clientVersion }
-                
-                            showToolbar           = { !this.state.keyboardDidShow }
-                
-                            callButtonPressHandler       = { this.callButtonPressHandler.bind(this) }
-                            cameraButtonPressHandler     = { this.cameraButtonPressHandler.bind(this) }
-                            microphoneButtonPressHandler = { this.microphoneButtonPressHandler.bind(this) }
-                        />
-                    </View>
-                    <EntranceForm
-                        host              = { this.state.host }
-                        token             = { this.state.token }
-                        resourceId        = { this.state.resourceId }
-                        displayName       = { this.state.displayName }
-                        showEntranceForm  = { this.state.showEntranceForm }
+      return (
+        <View>
+          <View style = { styles.body } >
+            <VidyoConnectorView 
+              ref                         = {ref => this.vidyoConnector = ref}
+              style                       = {styles.frame}
+
+              viewStyle                   = "ViewStyleDefault"
+              remoteParticipants          = {8}
+              logFileFilter               = "warning all@VidyoConnector info@VidyoClient"
+              logFileName                 = ""
+              userData                    = {0}
+
+              cameraPrivacy               = {this.state.cameraButtonState}
+              microphonePrivacy           = {this.state.microphoneButtonState}
+
+              mode                        = {this.state.connectorMode}
+
+              onConnect                   = {this.onConnect}
+              onDisconnect                = {this.onDisconnect}
+              onParticipantJoined         = {this.onParticipantJoined}
+              onParticipantLeft           = {this.onParticipantLeft}
+
+            />
+            <View style = { styles.banner }>
+              <Text style = { styles.message }>{ this.state.keyboardDidShow ? '' : this.state.connectionStatus }</Text>
+            </View>
+          </View>
+          <Animated.View
+                style = { [ styles.footer, { transform: [{ translateY: this.state.toolbarBounceValue }] } ] }>
+            <View>
+              <Toolbar
+                callButtonState       = { this.state.callButtonState }
+                cameraButtonState     = { this.state.cameraButtonState }
+                microphoneButtonState = { this.state.microphoneButtonState }
+                clientVersion         = { this.state.clientVersion }
+          
+                isToolbarHidden       = { this.state.isToolbarHidden || this.state.keyboardDidShow }
+      
+                togglePressHandler           = { this._toolbarTogglePressHandler }
+                callButtonPressHandler       = { this._callButtonPressHandler }
+                cameraButtonPressHandler     = { this._cameraButtonPressHandler }
+                microphoneButtonPressHandler = { this._microphoneButtonPressHandler }
+              />
+            </View>
+          </Animated.View>
+          <EntranceForm
+            host                  = { this.state.host }
+            token                 = { this.state.token }
+            resourceId            = { this.state.resourceId }
+            displayName           = { this.state.displayName }
+
+            eFormBounceValue      = { this.state.eFormBounceValue }
+            isEntranceFormHidden  = { this.state.isEntranceFormHidden }
                     
-                        inputTextChanged  = { this.inputTextChanged.bind(this) }
-                    />
-                </View>
-                );
+            inputTextChanged  = { this._inputTextChanged }
+          />
+        </View>
+      );
     }
 }
 
 const styles = StyleSheet.create({
-header:{
-         height:           "3%",
-         width:            "100%",
-         backgroundColor:  "rgb(40, 40, 40)"
-},
-body: {
-         height:           "88%",
-         width:            "100%"
-},
-footer: {
-         height:           "9%",
-         width:            "100%",
-         backgroundColor:  "rgb(0, 0, 0)",
-},
-                                
-frame: {
-         marginTop:        0,
-         width:            "100%",
-         height:           "100%",
-         backgroundColor:  "rgb(20, 20, 20)",
-},
-                                 
-message: {
-         textAlign:        "center",
-         color:            "rgb(180, 180, 180)"
-},
-                                 
-toolbar: {
-         position:         "absolute"
-}
+    banner:{
+        position:         "absolute",
+        width:            "100%",
+        backgroundColor:  "rgba(40, 40, 40, 0.5)"
+    },
+    body: {
+        height:           "100%",
+        width:            "100%",
+        backgroundColor:  "rgba(0, 0, 0, 0.4)"
+    },
+    footer: {
+        position:         "absolute",
+        marginTop:        scrHeight-210,
+        width:            "100%"
+    },
+    frame: {
+        marginTop:        0,
+        width:            "100%",
+        height:           "100%",
+        backgroundColor:  "rgb(20, 20, 20)",
+    },
+    message: {
+        textAlign:        "center",
+        color:            "rgb(180, 180, 180)"
+    }
 });
 

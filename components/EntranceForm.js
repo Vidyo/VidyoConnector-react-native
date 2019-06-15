@@ -1,56 +1,51 @@
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   TextInput,
-  Text,
-  View
+  Animated,
+  Text
 } from 'react-native';
 
 export default class EntranceForm extends Component {
     render() {
-    if (this.props.showEntranceForm){
         return (
-            <View style={ styles.form }>
+            <Animated.View style={ [ styles.form, { transform: [{ translateY: this.props.eFormBounceValue }] }] }>
                 <Text style={ styles.title }>{ 'Join to conference' }</Text>      
-                <TextInput style = { Platform.OS === 'ios' ? styles.input : {} }
+                <TextInput style = { styles.input }
                     placeholder  = { 'host' }
                     value        = { this.props.host } 
                     onChangeText = { text => { this.props.inputTextChanged({ target: 'host', text }) } }
                 />
-                <TextInput style = { Platform.OS === 'ios' ? styles.input : {} }
+                <TextInput style = { styles.input }
                     placeholder  = { 'token' }
                     value        = { this.props.token }
                     onChangeText = { text => this.props.inputTextChanged({ target: 'token', text }) }
                 />
-                <TextInput style = { Platform.OS === 'ios' ? styles.input : {} }
+                <TextInput style = { styles.input }
                     placeholder  = { 'displayName' }
                     value        = { this.props.displayName }
                     onChangeText = { text => this.props.inputTextChanged({ target: 'displayName', text }) }
                 />
-                <TextInput style = { Platform.OS === 'ios' ? styles.input : {} }
+                <TextInput style = { styles.input }
                     placeholder  = { 'resourceId' }
                     value        = { this.props.resourceId } 
                     onChangeText = { text => this.props.inputTextChanged({ target: 'resourceId', text }) }
                 />
-            </View>
-          );
+            </Animated.View>
+        );
     }
-    else {
-        return null;
-    }
-  }
 }
 
 const styles = StyleSheet.create({
     form: {
         padding:          "2%",
-        marginTop:        "6%",
+        marginTop:        "8%",
         marginLeft:       "4%",
         width:            "92%",
-        height:           300,
-        backgroundColor:  "rgba(255, 255, 255, 0.66)",
+        height:           350,
+        backgroundColor:  "rgba(0, 0, 0, 0.35)",
         position:         "absolute",
+        borderRadius:     7
     },
     input: {
         marginTop:          "2%",
@@ -58,12 +53,14 @@ const styles = StyleSheet.create({
         paddingTop:         "5%",
         paddingBottom:      "1%",
         borderBottomWidth:  1,
-        borderColor:        "gray"
+        borderColor:        "rgba(0, 0, 0, 0.25)",
+        color:              "rgba(255, 255, 255, 0.5)"
     },
     title: {
         fontSize:         18,
         textAlign:        "center",
         marginTop:        "5%",
-        marginBottom:     "5%"
+        marginBottom:     "5%",
+        color:            "rgba(255, 255, 255, 0.4)"
     }
 });
