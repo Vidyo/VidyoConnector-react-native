@@ -25,13 +25,13 @@ Go to `./android/local.properties` and set location of the Android SDK
 
 ## Build and Run Application
 
-1. Follow next link and install all described dependencies if you want to use virtual devices.
+1. Follow next link and install all described dependencies.
 
     `https://facebook.github.io/react-native/docs/getting-started.html`
 
 2. Install dependencies.
 
-    `npm install`
+    `yarn`
 
 3. Build and run the application on the iOS or Android device.
 
