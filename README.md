@@ -1,8 +1,8 @@
-# VidyoConnector-react-native
+# vidyo.io-react-native
 
 ## Clone Repository
 
-    git clone https://github.com/Vidyo/VidyoConnector-react-native.git
+    git clone https://github.com/Vidyo/vidyo.io-react-native.git
 
 ## Acquire VidyoClient iOS and Android SDKs
 > Note: Highlighted steps are very important because samples already contain configurations specified below and both SDK packages are linked as relative folders located in VidyoConnector-react-native directory.
