@@ -1,17 +1,13 @@
 package com.vidyoreactnative.VidyoConnector;
 
-import android.util.SparseArray;
-
-import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
-import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.vidyo.VidyoClient.Connector.Connector;
 
 import java.util.Map;
+
 import javax.annotation.Nullable;
 
 public class VidyoConnectorViewManager extends SimpleViewManager<VidyoConnectorView> {

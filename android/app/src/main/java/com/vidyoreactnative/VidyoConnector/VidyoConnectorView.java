@@ -2,37 +2,30 @@ package com.vidyoreactnative.VidyoConnector;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
-import android.support.v4.app.ActivityCompat;
 import android.util.DisplayMetrics;
-import android.util.Log;
-import android.widget.FrameLayout;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 
-import com.facebook.react.uimanager.ThemedReactContext;
-import com.facebook.react.uimanager.events.RCTEventEmitter;
+import androidx.core.app.ActivityCompat;
+
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableArray;
-import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
-
+import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.vidyo.VidyoClient.Connector.Connector;
+import com.vidyo.VidyoClient.Connector.Connector.ConnectorDisconnectReason;
+import com.vidyo.VidyoClient.Connector.Connector.ConnectorFailReason;
 import com.vidyo.VidyoClient.Connector.Connector.ConnectorMode;
 import com.vidyo.VidyoClient.Connector.Connector.ConnectorViewStyle;
-import com.vidyo.VidyoClient.Connector.Connector.ConnectorFailReason;
-import com.vidyo.VidyoClient.Connector.Connector.ConnectorDisconnectReason;
-
 import com.vidyo.VidyoClient.Connector.Connector.IConnect;
 import com.vidyo.VidyoClient.Connector.Connector.IRegisterParticipantEventListener;
-
 import com.vidyo.VidyoClient.Connector.ConnectorPkg;
 import com.vidyo.VidyoClient.Endpoint.Participant;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class VidyoConnectorView extends FrameLayout implements IConnect, IRegisterParticipantEventListener {
 
