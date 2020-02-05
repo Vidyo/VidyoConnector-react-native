@@ -1,5 +1,7 @@
 package com.vidyoreactnative.VidyoConnector;
 
+import androidx.annotation.NonNull;
+
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
@@ -14,14 +16,25 @@ public class VidyoConnectorViewManager extends SimpleViewManager<VidyoConnectorV
 
     public static final String REACT_CLASS = "VidyoConnectorView";
 
+    private VidyoConnectorView vidyoConnectorView;
+    private ThemedReactContext context;
+
     @Override
     public String getName() {
         return REACT_CLASS;
     }
 
     @Override
-    public VidyoConnectorView createViewInstance(ThemedReactContext context) {
-        return new VidyoConnectorView(context);
+    public VidyoConnectorView createViewInstance(@NonNull ThemedReactContext context) {
+        /* Refresh */
+        if (this.context != context) {
+            this.context = context;
+
+            if (vidyoConnectorView != null) vidyoConnectorView.dispose();
+            vidyoConnectorView = new VidyoConnectorView(context);
+        }
+
+        return vidyoConnectorView;
     }
 
     @ReactProp(name = "viewStyle")
@@ -46,7 +59,7 @@ public class VidyoConnectorViewManager extends SimpleViewManager<VidyoConnectorV
 
     @ReactProp(name = "userData")
     public void setUserData(VidyoConnectorView vc, double userData) {
-        vc.setUserData((long)userData);
+        vc.setUserData((long) userData);
     }
 
     @ReactProp(name = "cameraPrivacy")
@@ -70,15 +83,15 @@ public class VidyoConnectorViewManager extends SimpleViewManager<VidyoConnectorV
         MapBuilder.Builder<String, Object> builder = MapBuilder.builder();
 
         return builder
-            .put("onConnect",                   MapBuilder.of("registrationName", "onConnect"))
-            .put("onDisconnect",                MapBuilder.of("registrationName", "onDisconnect"))
+                .put("onConnect", MapBuilder.of("registrationName", "onConnect"))
+                .put("onDisconnect", MapBuilder.of("registrationName", "onDisconnect"))
 
-            .put("onParticipantJoined",         MapBuilder.of("registrationName", "onParticipantJoined"))
-            .put("onParticipantLeft",           MapBuilder.of("registrationName", "onParticipantLeft"))
-            .put("onDynamicParticipantChanged", MapBuilder.of("registrationName", "onDynamicParticipantChanged"))
-            .put("onLoudestParticipantChanged", MapBuilder.of("registrationName", "onLoudestParticipantChanged"))
+                .put("onParticipantJoined", MapBuilder.of("registrationName", "onParticipantJoined"))
+                .put("onParticipantLeft", MapBuilder.of("registrationName", "onParticipantLeft"))
+                .put("onDynamicParticipantChanged", MapBuilder.of("registrationName", "onDynamicParticipantChanged"))
+                .put("onLoudestParticipantChanged", MapBuilder.of("registrationName", "onLoudestParticipantChanged"))
 
-            .build();
+                .build();
     }
 
     @Nullable
@@ -87,13 +100,13 @@ public class VidyoConnectorViewManager extends SimpleViewManager<VidyoConnectorV
         MapBuilder.Builder<String, Integer> builder = MapBuilder.builder();
 
         return builder
-            .put("connect",              VidyoConnectorCommands.CONNECT              .getCode())
-            .put("disconnect",           VidyoConnectorCommands.DISCONNECT           .getCode())
-            .build();
+                .put("connect", VidyoConnectorCommands.CONNECT.getCode())
+                .put("disconnect", VidyoConnectorCommands.DISCONNECT.getCode())
+                .build();
     }
 
     @Override
-    public void receiveCommand(VidyoConnectorView vc, int commandId, @Nullable ReadableArray params) {
+    public void receiveCommand(@NonNull VidyoConnectorView vc, int commandId, @Nullable ReadableArray params) {
         super.receiveCommand(vc, commandId, params);
 
         switch (commandId) {
@@ -104,11 +117,5 @@ public class VidyoConnectorViewManager extends SimpleViewManager<VidyoConnectorV
                 vc.disconnect();
                 break;
         }
-    }
-
-    @Override
-    public void onDropViewInstance(VidyoConnectorView vc) {
-        super.onDropViewInstance(vc);
-        vc.dispose();
     }
 }

@@ -18,12 +18,11 @@ public class VidyoConnectorPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Arrays.<ViewManager>asList(new VidyoConnectorViewManager());
+        return Arrays.asList(new VidyoConnectorViewManager());
     }
 
     @Override
-    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext){
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         return Collections.emptyList();
     }
-
 }

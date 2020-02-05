@@ -29,18 +29,19 @@ import java.util.ArrayList;
 
 public class VidyoConnectorView extends FrameLayout implements IConnect, IRegisterParticipantEventListener {
 
-    private Activity            currentActivity;
-    private Connector           connector;
-    private DisplayMetrics      displayMetrics;
-    private ThemedReactContext  reactContext;
+    private Activity currentActivity;
+    private ThemedReactContext reactContext;
 
-    private ConnectorViewStyle  viewStyle           = ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default;
-    private int                 remoteParticipants  = 8;
-    private String              logFileFilter       = "";
-    private String              logFileName         = "";
-    private long                userData            = 0;
+    private Connector connector;
 
-    private boolean             _initialized        = false;
+    private ConnectorViewStyle viewStyle = ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default;
+
+    private int remoteParticipants = 8;
+    private String logFileFilter = "debug@VidyoClient debug@VidyoConnector fatal error info";
+    private String logFileName = "";
+    private long userData = 0;
+
+    private boolean _initialized = false;
 
     private static final String[] mPermissions = {
             Manifest.permission.CAMERA,
@@ -51,13 +52,15 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
     public VidyoConnectorView(ThemedReactContext context) {
         super(context);
         reactContext = context;
-        displayMetrics = context.getResources().getDisplayMetrics();
+
         currentActivity = reactContext.getCurrentActivity();
+
         if (currentActivity != null) {
             currentActivity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             if (ConnectorPkg.initialize()) {
                 ConnectorPkg.setApplicationUIContext(currentActivity);
                 ActivityCompat.requestPermissions(currentActivity, mPermissions, 1);
+
                 createVidyoConnector();
                 _initialized = true;
             }
@@ -65,9 +68,9 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
     }
 
     public void setViewStyle(String viewStyle) {
-        ConnectorViewStyle viewStyleTiles       = ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Tiles;
-        ConnectorViewStyle viewStyleDefault     = ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default;
-        ConnectorViewStyle connectorViewStyle   = viewStyle.equals("ViewStyleTiles") ? viewStyleTiles : viewStyleDefault;
+        ConnectorViewStyle viewStyleTiles = ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Tiles;
+        ConnectorViewStyle viewStyleDefault = ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default;
+        ConnectorViewStyle connectorViewStyle = viewStyle.equals("ViewStyleTiles") ? viewStyleTiles : viewStyleDefault;
 
         this.viewStyle = connectorViewStyle;
     }
@@ -92,7 +95,9 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
         if (connector != null) {
             dispose();
         }
-        connector = new Connector(this, viewStyle, remoteParticipants, logFileFilter,logFileName, userData);
+
+        connector = new Connector(this, viewStyle, remoteParticipants, logFileFilter, logFileName, userData);
+        connector.registerParticipantEventListener(this);
     }
 
     public void dispose() {
@@ -108,10 +113,10 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
     }
 
     public void connect(ReadableArray params) {
-        String host         = params.getString(0);
-        String token        = params.getString(1);
-        String displayName  = params.getString(2);
-        String resourceId   = params.getString(3);
+        String host = params.getString(0);
+        String token = params.getString(1);
+        String displayName = params.getString(2);
+        String resourceId = params.getString(3);
 
         connector.connect(host, token, displayName, resourceId, this);
     }
@@ -140,7 +145,7 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
     }
 
     private void emit(String event, WritableMap payload) {
-        ReactContext reactContext = (ReactContext)getContext();
+        ReactContext reactContext = (ReactContext) getContext();
         RCTEventEmitter eventEmitter = reactContext.getJSModule(RCTEventEmitter.class);
         eventEmitter.receiveEvent(getId(), event, payload);
     }
@@ -149,9 +154,7 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if (connector != null) {
-            connector.showViewAt(this, 0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
-
-            connector.registerParticipantEventListener(this);
+            connector.showViewAt(this, 0, 0, getWidth(), getHeight());
         }
     }
 
@@ -194,7 +197,7 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
 
     @Override
     public void onParticipantJoined(Participant participant) {
-        WritableMap payload        = Arguments.createMap();
+        WritableMap payload = Arguments.createMap();
         WritableMap participantMap = Arguments.createMap();
 
         participantMap.putString("id", participant.id);
@@ -208,7 +211,7 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
 
     @Override
     public void onParticipantLeft(Participant participant) {
-        WritableMap payload        = Arguments.createMap();
+        WritableMap payload = Arguments.createMap();
         WritableMap participantMap = Arguments.createMap();
 
         participantMap.putString("id", participant.id);
@@ -222,10 +225,10 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
 
     @Override
     public void onDynamicParticipantChanged(ArrayList<Participant> arrayList) {
-        WritableMap   payload      = Arguments.createMap();
+        WritableMap payload = Arguments.createMap();
         WritableArray participants = Arguments.createArray();
 
-        for (Participant participant: arrayList) {
+        for (Participant participant : arrayList) {
             WritableMap participantMap = Arguments.createMap();
 
             participantMap.putString("id", participant.id);
@@ -242,8 +245,8 @@ public class VidyoConnectorView extends FrameLayout implements IConnect, IRegist
 
     @Override
     public void onLoudestParticipantChanged(Participant participant, boolean b) {
-        WritableMap payload         = Arguments.createMap();
-        WritableMap participantMap  = Arguments.createMap();
+        WritableMap payload = Arguments.createMap();
+        WritableMap participantMap = Arguments.createMap();
 
         participantMap.putString("id", participant.id);
         participantMap.putString("name", participant.name);
